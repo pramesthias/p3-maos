@@ -41,7 +41,7 @@ Silahkan setup project aplikasi kamu:
     - [ ] Komponen Featured Product (5-10 product) + “see-all”
   - [ ] Halaman product: /products
     - [ ] Komponen List Product
-    - [ ] Komponen Search
+    - [x] Komponen Search
     - [ ] Komponent Pagination
     - [ ] Komponen Add to wishlist
   - [ ] Halaman detail product: /products/:slug
