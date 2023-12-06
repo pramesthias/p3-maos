@@ -1,6 +1,7 @@
 // http://localhost:3000/register
 import Image from "next/image";
 import "../globals.css";
+import Link from "next/link";
 
 export default function Login() {
   return (
@@ -80,9 +81,9 @@ export default function Login() {
               </form>
               <div className="mt-4 flex items-center justify-center space-x-4">
                 <p>Sudah mendaftar?</p>
-                <a href="#" className="font-semibold text-blue-700">
+                <Link href="/login" className="font-semibold text-blue-700">
                   Masuk
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Search from "./Search";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -38,18 +39,25 @@ export default function Navbar() {
           </ul>
         </div>
         {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
-        <Image
-          className="ms-10 "
-          src="/images/logo.png"
-          alt="Maos Logo"
-          width={200}
-          height={200}
-        />
+        <Link href="/">
+          <Image
+            className="ms-10 "
+            src="/images/logo.png"
+            alt="Maos Logo"
+            width={200}
+            height={200}
+          />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex flex-grow items-center">
         <ul className="menu menu-horizontal px-1 gap-15 ml-[-300px]">
           <li className="flex items-center">
-            <a className="font-semibold text-lg text-blue-900 mt-2">Kategori</a>
+            <Link
+              href="/products"
+              className="font-semibold text-lg text-blue-900 mt-2"
+            >
+              Kategori
+            </Link>
           </li>
           <li>
             {/* <div className="form-control">
@@ -76,10 +84,12 @@ export default function Navbar() {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 absolute top-full right-0"
               >
                 <li className="flex items-center">
-                  <a>Wishlist Saya</a>
+                  <Link href="/wishlist">Wishlist Saya</Link>
                 </li>
                 <li className="flex items-center">
-                  <a className="font-semibold text-3lg text-red-500">Keluar</a>
+                  {/* <Link  href={"/wishlist"} className="font-semibold text-3lg text-red-500">
+                    Keluar
+                  </Link> */}
                 </li>
               </ul>
             </div>
