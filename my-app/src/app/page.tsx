@@ -1,4 +1,5 @@
 // import Navbar from "@/components/Navbar";
+import About from "@/components/About";
 import Banner from "@/components/Banner";
 import Image from "next/image";
 
@@ -7,6 +8,7 @@ export default function Home() {
     <div>
       {/* <Navbar /> */}
       <Banner />
+      <About />
       <section className="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">

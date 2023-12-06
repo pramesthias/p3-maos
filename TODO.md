@@ -36,8 +36,8 @@ Silahkan setup project aplikasi kamu:
   - [x] Halaman register: /register
   - [x] Halaman login: /login
   - [ ] Halaman home: /
-    - [ ] Komponen Banner
-    - [ ] Komponen Detail info Ecommerce
+    - [x] Komponen Banner
+    - [x] Komponen Detail info Ecommerce
     - [ ] Komponen Featured Product (5-10 product) + “see-all”
   - [ ] Halaman product: /products
     - [ ] Komponen List Product
