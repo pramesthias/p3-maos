@@ -31,10 +31,10 @@ Silahkan setup project aplikasi kamu:
 
 ### NEXT.js Intro
 
-- [ ] Setup NEXT.js project yang menggunakan typescript
-- [ ] Convert halaman-halaman dan komponen-komponen yang dibuat sebelumnya menjadi pages dan components pada NEXT.js:
-  - [ ] Halaman register: /register
-  - [ ] Halaman login: /login
+- [x] Setup NEXT.js project yang menggunakan typescript
+- [x] Convert halaman-halaman dan komponen-komponen yang dibuat sebelumnya menjadi pages dan components pada NEXT.js:
+  - [x] Halaman register: /register
+  - [x] Halaman login: /login
   - [ ] Halaman home: /
     - [ ] Komponen Banner
     - [ ] Komponen Detail info Ecommerce
@@ -61,7 +61,7 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
 - [ ] Halaman home: / (SSR)
 - [ ] Halaman product: /products (CSR)
   - [ ] Komponen List Product (CSR)
-  - [ ] Komponen Search (CSR)
+  - [x] Komponen Search (CSR)
   - [ ] Komponen Pagination (CSR)
   - [ ] Komponen Add to Wishlist (CSR)
 - [ ] Halaman detail product: /products/:slug (SSR)
