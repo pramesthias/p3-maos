@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "all books",
 };
 
-async function getProducts(): Promise<Product[]> {
+async function getProducts(query: string | null): Promise<Product[]> {
   const data = await fetch("localhost:3001/products", {
     cache: "no-store",
   });
@@ -24,7 +24,7 @@ async function getProducts(): Promise<Product[]> {
 
 export default async function Products() {
   // mas fachri
-  const data = await getProducts();
+  const data = await getProducts(null); //SERVER SIDE (?)
   console.log(data);
   return (
     <div>

@@ -2,8 +2,44 @@
 import Image from "next/image";
 import "../globals.css";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
+import { TheResponse } from "../register/page";
+import ErrMessage from "@/components/Err";
 
 export default function Login() {
+  const handleLogin = async (formData: FormData) => {
+    "use server";
+    const email = formData.get("email");
+    const password = formData.get("password");
+    console.log(email, password);
+
+    const response = await fetch("http://localhost:3000/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const result = (await response.json()) as TheResponse<{
+      accessToken: string;
+    }>;
+    console.log(result);
+
+    if (!response.ok) {
+      return redirect("/login?error=" + result.message);
+    }
+
+    if (result.data)
+      cookies().set("Authorization", `Bearer ${result.data.accessToken}`);
+
+    return redirect("/"); // => or products?
+  };
+
   return (
     <div
       style={{
@@ -45,19 +81,23 @@ export default function Login() {
                 height={270}
               />
             </div>
+
+            <ErrMessage />
+
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <h2 className="mt-10 text-left text-3xl leading-9 tracking tight text-blue-900">
                 Masuk
               </h2>
             </div>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form className="space-y-6">
+              <form className="space-y-6" action={handleLogin}>
                 <div>
                   {/* <label className="block text-sm font-medium leading-6 text-gray-900">
                     Email
                   </label> */}
                   <div className="mt-2">
                     <input
+                      name="email"
                       placeholder="Email"
                       type="email"
                       className="block w-full rounded-md border-0 py-1.5 pl-2 text-900 shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -73,6 +113,7 @@ export default function Login() {
                   </div>
                   <div className="mt-2">
                     <input
+                      name="password"
                       placeholder="Kata Sandi"
                       type="password"
                       className="block w-full rounded-md border-0 py-1.5 pl-2 text-900 

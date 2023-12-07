@@ -1,11 +1,8 @@
 import { ObjectId } from "mongodb";
 import { getMongoClientInstance } from "../config";
 
-// const DB_NAME = "Maos";
-
 export const getDb = async () => {
   const client = await getMongoClientInstance();
-  //   const db = client.db(DB_NAME);
   const db = client.db("Maos");
   return db;
 };
@@ -39,6 +36,16 @@ export const getProductsBySlug = async (slug: string) => {
   const product = (await db
     .collection("Products")
     .findOne({ slug })) as ProductModel;
+
+  return product;
+};
+
+// SEARCH BY NAME => NOT YET
+export const searchProducts = async (name: string) => {
+  const db = await getDb();
+  const product = (await db
+    .collection("Products")
+    .findOne({ name })) as ProductModel;
 
   return product;
 };
