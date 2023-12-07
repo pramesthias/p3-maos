@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+import { Db, ObjectId } from "mongodb";
 import { getMongoClientInstance } from "../config";
 import { hashText } from "../helpers/bcrypt";
 
@@ -7,7 +7,7 @@ import { hashText } from "../helpers/bcrypt";
 export const getDb = async () => {
   const client = await getMongoClientInstance();
   //   const db = client.db(DB_NAME);
-  const db = client.db("Maos");
+  const db: Db = client.db("Maos");
   return db;
 };
 
@@ -19,12 +19,7 @@ export type UserModel = {
   password: string;
 };
 
-export type UserNew = {
-  name?: string;
-  username: string;
-  email: string;
-  password: string;
-};
+export type UserNew = Omit<UserModel, "_id">;
 
 export const getUsers = async () => {
   const db = await getDb();
@@ -38,14 +33,34 @@ export const getUsers = async () => {
 };
 
 export const createUser = async (data: UserNew) => {
-  const db = await getDb();
   const user: UserNew = {
     ...data,
     name: data.username,
     password: hashText(data.password),
   };
 
+  const db = await getDb();
   const newUser = await db.collection("Users").insertOne(user);
 
   return newUser;
+};
+
+// UNIQUE UNAME => CALLED IN CONTROLLER
+export const getUserByUname = async (username: string) => {
+  const db = await getDb();
+  const user = (await db
+    .collection("Users")
+    .findOne({ username: username })) as UserModel;
+
+  return user;
+};
+
+// UNIQUE EMAIL => CALLED IN CONTROLLER
+export const getUserByEmail = async (email: string) => {
+  const db = await getDb();
+  const user = (await db
+    .collection("Users")
+    .findOne({ email: email })) as UserModel;
+
+  return user;
 };

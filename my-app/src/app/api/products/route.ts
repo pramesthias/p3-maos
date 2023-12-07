@@ -1,4 +1,5 @@
 import { getProducts } from "@/db/models/products";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   const products = await getProducts();
@@ -13,3 +14,9 @@ export async function GET(request: Request) {
     }
   );
 }
+
+// export async function GET(request: NextRequest) {
+//   const data = await getProducts();
+//   console.log(request.headers.get("x-user-email"), "ini");
+//   return NextResponse.json(data);
+// }

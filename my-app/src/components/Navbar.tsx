@@ -40,7 +40,7 @@ export default function Navbar() {
         </div>
         {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
         <Link href="/">
-          <Image
+          <img
             className="ms-10 "
             src="/images/logo.png"
             alt="Maos Logo"

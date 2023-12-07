@@ -38,7 +38,7 @@ export default function Login() {
         <section className="flex-1 flex items-center justify-center md:item-start">
           <div className="p-6 md:p-12 rounded-lg shadow-xl w-full max-w-lg bg-white">
             <div className="flex justify-center mb-6">
-              <Image
+              <img
                 src="/images/logo.png"
                 alt="Maos Logo"
                 width={270}
