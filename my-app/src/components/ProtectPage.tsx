@@ -19,7 +19,7 @@ const ProtectPage = ({ children }: ProtectedProps) => {
 
 export default ProtectPage;
 
-// => export, pakein layout.tsx juga lbh baik masukin ke page.tsx
+// => export, pakein layout.tsx juga lbh baik / masukin ke page.tsx untuk wishlist
 // export default function WishLayout({
 //   children,
 // }: {

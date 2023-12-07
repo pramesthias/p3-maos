@@ -1,6 +1,9 @@
+"use client"; // => onClick
+
 import Image from "next/image";
 import Search from "./Search";
 import Link from "next/link";
+import LogoutAction from "@/actions/logout"; // import logout.tsx here
 
 export default function Navbar() {
   return (
@@ -90,6 +93,7 @@ export default function Navbar() {
                   {/* LOGOUT BUTTON */}
                   <button
                     // href={"/wishlist"}
+                    onClick={() => LogoutAction()}
                     className="font-semibold text-3lg text-red-500"
                   >
                     Keluar
