@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { getMongoClientInstance } from "../config";
+import { hashText } from "../helpers/bcrypt";
 
 // const DB_NAME = "Maos";
 
@@ -18,6 +19,13 @@ export type UserModel = {
   password: string;
 };
 
+export type UserNew = {
+  name?: string;
+  username: string;
+  email: string;
+  password: string;
+};
+
 export const getUsers = async () => {
   const db = await getDb();
   const users = (await db
@@ -27,4 +35,17 @@ export const getUsers = async () => {
     .toArray()) as UserModel[];
 
   return users;
+};
+
+export const createUser = async (data: UserNew) => {
+  const db = await getDb();
+  const user: UserNew = {
+    ...data,
+    name: data.username,
+    password: hashText(data.password),
+  };
+
+  const newUser = await db.collection("Users").insertOne(user);
+
+  return newUser;
 };
