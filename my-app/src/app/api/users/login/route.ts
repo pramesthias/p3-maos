@@ -58,7 +58,7 @@ export async function POST(request: Request) {
       email: userIn.email,
     });
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         message: "You Succesfully Login",
         data: {
@@ -69,6 +69,10 @@ export async function POST(request: Request) {
         status: 201,
       }
     );
+
+    response.cookies.set("Authorization", `Bearer ${accessToken}`);
+
+    return response;
   } catch (error) {
     if (error instanceof z.ZodError) {
       const errPath = error.issues[0].path[0];
