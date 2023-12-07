@@ -87,9 +87,13 @@ export default function Navbar() {
                   <Link href="/wishlist">Wishlist Saya</Link>
                 </li>
                 <li className="flex items-center">
-                  {/* <Link  href={"/wishlist"} className="font-semibold text-3lg text-red-500">
+                  {/* LOGOUT BUTTON */}
+                  <button
+                    // href={"/wishlist"}
+                    className="font-semibold text-3lg text-red-500"
+                  >
                     Keluar
-                  </Link> */}
+                  </button>
                 </li>
               </ul>
             </div>
