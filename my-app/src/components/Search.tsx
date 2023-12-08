@@ -3,7 +3,7 @@ export default function Search() {
     <div className="form-control">
       <input
         type="text"
-        placeholder="Cari Produk, Judul Buku, Penulis"
+        placeholder="Cari Buku"
         className="input input-bordered"
       />
     </div>

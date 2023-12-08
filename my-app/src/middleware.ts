@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
   console.log(request.url, ">>> from MIDDLEWARE");
 
   // => /wishlist ?
-  if (request.url.includes("api/products")) {
+  if (request.url.includes("api/wishlist")) {
     const authorization = cookies().get("Authorization");
     console.log(authorization, ">>> Authorization");
 

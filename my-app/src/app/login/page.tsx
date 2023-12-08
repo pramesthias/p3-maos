@@ -37,7 +37,7 @@ export default function Login() {
     if (result.data)
       cookies().set("Authorization", `Bearer ${result.data.accessToken}`);
 
-    return redirect("/"); // => or products?
+    return redirect("/");
   };
 
   return (

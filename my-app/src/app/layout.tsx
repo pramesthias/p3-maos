@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { isLoggedIn } from "@/lib/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,11 +16,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const loginState: boolean = isLoggedIn();
+
   return (
     <html lang="en">
       <body className={inter.className}>
         {/* add NAVBAR TO ALL THE CHILD */}
-        <Navbar />
+        <Navbar loginState={loginState} />
         {children}
       </body>
     </html>

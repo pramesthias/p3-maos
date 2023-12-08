@@ -11,9 +11,16 @@ export default function Error({
 }) {
   console.log(error);
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>Try again</button>
+    <div className="mx-auto max-w-md text-center">
+      <h2 className="font-serif text-blue-800 text-2xl font-bold sm:text-3xl m-10">
+        Something went wrong!
+      </h2>
+      <button
+        className="font-serif text-red-800  font-bold"
+        onClick={() => reset()}
+      >
+        Try again
+      </button>
     </div>
   );
 }

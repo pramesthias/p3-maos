@@ -1,5 +1,6 @@
 import { getProductsBySlug } from "@/db/models/products";
 
+// DETAIL PRODUCT /products/:slug (SSR)
 export async function GET(
   request: Request,
   { params }: { params: { slug: string } }

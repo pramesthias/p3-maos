@@ -16,10 +16,10 @@ Silahkan setup project aplikasi kamu:
     - [x] Komponen Banner
     - [x] Komponen Detail info Ecommerce
     - [x] Komponen Featured Product (50-10 product) + “see-all”
-  - [ ] Halaman product
+  - [x] Halaman product
     - [x] Komponen List Product
     - [x] Komponen Search
-    - [ ] Komponen Pagination
+    - [x] Komponen Pagination
     - [x] Komponen Add to wishlist
   - [x] Halaman detail product
     - [x] Komponen Add to wishlist
@@ -39,10 +39,10 @@ Silahkan setup project aplikasi kamu:
     - [x] Komponen Banner
     - [x] Komponen Detail info Ecommerce
     - [x] Komponen Featured Product (5-10 product) + “see-all”
-  - [ ] Halaman product: /products
+  - [x] Halaman product: /products
     - [x] Komponen List Product
     - [x] Komponen Search
-    - [ ] Komponent Pagination
+    - [x] Komponent Pagination
     - [x] Komponen Add to wishlist
   - [x] Halaman detail product: /products/:slug
     - [x] Komponen Add to wishlist
@@ -58,13 +58,13 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
 
 - [x] Halaman register: /register
 - [x] Halaman login: /login
-- [ ] Halaman home: / (SSR)
+- [x] Halaman home: / (SSR)
 - [ ] Halaman product: /products (CSR)
-  - [ ] Komponen List Product (CSR)
+  - [x] Komponen List Product (CSR)
   - [ ] Komponen Search (CSR)
   - [ ] Komponen Pagination (CSR)
   - [ ] Komponen Add to Wishlist (CSR)
-- [ ] Halaman detail product: /products/:slug (SSR)
+- [x] Halaman detail product: /products/:slug (SSR)
   - [ ] Komponen Add to Wishlist (CSR)
 - [ ] Halaman wishlist: /wishlist
   - [ ] Komponen List Wishlist (CSR)
@@ -86,7 +86,7 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
     - [x] email:string (validation: required, email format)
     - [x] password:string (validation: required)
   - [ ] Halaman home: / (SSR)
-    - [ ] Halaman product: /products
+    - [x] Halaman product: /products
     - [ ] Fitur List Product
     - [ ] Fitur Search
     - [ ] Fitur Pagination
@@ -94,7 +94,7 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
   - [ ] Fitur Add to Wishlist
     - [ ] userId: ObjectId (validation: required)
     - [ ] productId: ObjectId (validation: required)
-  - [ ] Halaman detail product: /products/:slug
+  - [x] Halaman detail product: /products/:slug
     - [ ] Fitur Add to Wishlist
       - [ ] userId: ObjectId (validation: required)
       - [ ] productId: ObjectId (validation: required)
@@ -108,8 +108,8 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
 
 Implementasikan autentikasi pada aplikasi NEXT.js yang sudah dibuat dengan detail sebagai berikut:
 
-- [ ] Hanya user yang sudah login yang bisa menambahkan wishlist produk
-- [ ] Hanya user yang sudah login yang bisa menghapus wishlist produk
+- [x] Hanya user yang sudah login yang bisa menambahkan wishlist produk
+- [x] Hanya user yang sudah login yang bisa menghapus wishlist produk
 
 ## W2D4
 

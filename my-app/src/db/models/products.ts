@@ -21,6 +21,7 @@ export type ProductModel = {
   updatedAt: string;
 };
 
+// List Product (CSR)
 export const getProducts = async () => {
   const db = await getDb();
   const products = (await db
@@ -31,6 +32,7 @@ export const getProducts = async () => {
   return products;
 };
 
+// Detail product: /products/:slug (SSR)
 export const getProductsBySlug = async (slug: string) => {
   const db = await getDb();
   const product = (await db
@@ -40,12 +42,13 @@ export const getProductsBySlug = async (slug: string) => {
   return product;
 };
 
-// SEARCH BY NAME => NOT YET
+// Search (CSR) : SEARCH BY NAME => NOT YET
 export const searchProducts = async (name: string) => {
   const db = await getDb();
-  const product = (await db
+  const products = (await db
     .collection("Products")
-    .findOne({ name })) as ProductModel;
+    .find({ name: { $regex: name, $options: "i" } })
+    .toArray()) as ProductModel[];
 
-  return product;
+  return products;
 };

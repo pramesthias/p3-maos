@@ -1,6 +1,6 @@
 export default function Banner() {
   return (
-    <div className="lg:px-20 md:px-6 px-4 md:py-12 py-8">
+    <div className="lg:px-20 md:px-6 px-4 md:py-12 mt-10 mb-10 py-8">
       <div className="lg:flex items-center justify-between">
         <div className="lg:w-1/3">
           <img src="/images/ban1.jpg" className="w-full" alt="banner1" />

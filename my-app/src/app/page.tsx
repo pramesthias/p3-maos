@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 async function getProducts(): Promise<Product[]> {
   let url = "http://localhost:3000/api/products";
   const data = await fetch(url, {
-    cache: "no-store",
+    // cache: "no-store",
     headers: {
       Cookie: cookies().toString(),
     },
@@ -30,14 +30,15 @@ async function getProducts(): Promise<Product[]> {
 
 export default async function Home() {
   const data = await getProducts(); //SERVER SIDE (?)
-  console.log(data);
+  const fiveData = data.slice(0, 5);
+
+  // console.log(fiveData);
 
   return (
     <div>
-      {/* <Navbar /> */}
       {/* <Banner />
       <About /> */}
-      <Test />
+      {/* <Test /> */}
       <section className="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
@@ -48,36 +49,14 @@ export default async function Home() {
           {/* CARD SECTION */}
           <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-5 sm:gap-4 lg:mt-16">
             {/* card box start */}
-            {data?.map((p) => (
+            {fiveData?.map((p) => (
               <article
                 key={p._id}
                 className="relative flex flex-col overflow-hidden rounded-lg border"
               >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover transition-all duration-300 group-hover:scale-125"
-                    src={p.thumbnail}
-                    alt={p.name}
-                  />
-                </div>
-                <div className="absolute top-0 m-2">
-                  <Link
-                    href={`/products/${p.slug}`} // mas fachri
-                    className="rounded-md  bg-blue-800 p-1 text-[10px] font-bold uppercase tracking-wide text-white lg:py-2 lg:px-2"
-                  >
-                    detail
-                  </Link>
-                </div>
-                <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-                  <div className="mb-2 flex">
-                    <p className="mr-3 text-sm font-semibold">$79.00</p>
-                    <del className="text-xs text-gray-400"> $99.00 </del>
-                  </div>
-                  <h3 className="mb-2 text-sm text-gray-400">Fresh Apples</h3>
-                </div>
-                {/* <Card /> */}
+                <Card product={p} />
                 {/* ADD WISHLIST BUTTON */}
-                {/* <Add /> */}
+                <Add id={p._id} />
               </article>
             ))}
             {/*  */}
@@ -87,7 +66,7 @@ export default async function Home() {
               href="/more-products"
               className="text-blue-800 hover:text-blue-600 text-lg font-bold uppercase tracking-wide"
             >
-              Lihat Semua
+              See All Products
             </a>
           </div>
         </div>

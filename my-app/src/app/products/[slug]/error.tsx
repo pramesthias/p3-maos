@@ -9,11 +9,18 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  //   console.log(error);
+  console.log(error);
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>Try again</button>
+    <div className="mx-auto max-w-md text-center">
+      <h2 className="font-serif text-blue-800 text-2xl font-bold sm:text-3xl m-10">
+        Something went wrong!
+      </h2>
+      <button
+        className="font-bold font-serif text-red-800"
+        onClick={() => reset()}
+      >
+        Try again
+      </button>
     </div>
   );
 }
