@@ -1,5 +1,7 @@
 import { ObjectId } from "mongodb";
 import { getMongoClientInstance } from "../config";
+
+import { ProductModel } from "./products";
 import { UserModel } from "./user";
 
 export const getDb = async () => {
@@ -15,18 +17,10 @@ export interface WishModel {
   createdAt: string;
   updatedAt: string;
   user: UserModel;
+  product: ProductModel;
 }
 
-// export interface UserWish {
-//   _id: ObjectId;
-//   userId: ObjectId;
-//   productId: ObjectId;
-//   createdAt: string;
-//   updatedAt: string;
-//   user: UserModel;
-// }
-
-export type WishNew = Omit<WishModel, "_id" | "user">;
+export type WishNew = Omit<WishModel, "_id" | "user" | "product">;
 
 // ADD WISH OK
 export const addWishlist = async (userId: string, productId: string) => {
@@ -70,9 +64,16 @@ export const getWish = async (userId: string) => {
           as: "user",
         },
       },
+      {
+        $lookup: {
+          from: "Products",
+          localField: "productId",
+          foreignField: "_id",
+          as: "product",
+        },
+      },
     ])
     .toArray()) as WishModel[];
 
-  console.log(wishlists);
   return wishlists;
 };

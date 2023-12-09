@@ -7,7 +7,7 @@ export const getDb = async () => {
   return db;
 };
 
-export type ProductModel = {
+export interface ProductModel {
   _id: ObjectId;
   name: string;
   slug: string;
@@ -19,7 +19,7 @@ export type ProductModel = {
   images: string[];
   createdAt: string;
   updatedAt: string;
-};
+}
 
 // List Product (CSR)
 export const getProducts = async () => {

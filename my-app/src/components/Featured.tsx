@@ -18,7 +18,7 @@ export default function Featured() {
     });
 
     const products = await response.json();
-    // setData([...data, ...products]);
+
     setData(products);
     console.log(products, ">>> FEATURED PRODUCTS");
     console.log(data, ">>> Data");
