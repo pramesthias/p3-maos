@@ -39,7 +39,7 @@ export default async function Home() {
     <div>
       <Banner />
       <About />
-      {/* <Test /> */}
+
       <section className="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
@@ -57,14 +57,14 @@ export default async function Home() {
               >
                 <Card product={p} />
                 {/* ADD WISHLIST BUTTON */}
-                <Add id={p._id} />
+                {/* <Add id={p._id} /> */}
               </article>
             ))}
             {/*  */}
           </div>
           <div className="flex justify-end mt-6">
             <a
-              href="/more-products"
+              href="/products"
               className="text-blue-800 hover:text-blue-600 text-lg font-bold uppercase tracking-wide"
             >
               See All Products
