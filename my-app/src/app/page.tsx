@@ -17,7 +17,8 @@ export const metadata: Metadata = {
 };
 
 async function getProducts(): Promise<Product[]> {
-  let url = "http://localhost:3000/api/products";
+  const baseUrl = process.env.THE_URL || "http://localhost:3000";
+  const url = `${baseUrl}/api/products`;
   const data = await fetch(url, {
     // cache: "no-store",
     headers: {
@@ -36,8 +37,8 @@ export default async function Home() {
 
   return (
     <div>
-      {/* <Banner />
-      <About /> */}
+      <Banner />
+      <About />
       {/* <Test /> */}
       <section className="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">

@@ -32,6 +32,34 @@ export const getProducts = async () => {
   return products;
 };
 
+// PAGINATION ALL
+
+export const getProductsPage = async () => {
+  const db = await getDb();
+  const products = (await db
+    .collection("Products")
+    .aggregate([{ $skip: 0 }, { $limit: 21 }]) //all
+    .toArray()) as ProductModel[];
+
+  return products;
+};
+
+export const getProductsPageScroll = async (
+  page: number,
+  pageSize: number
+): Promise<ProductModel[]> => {
+  const skipValue = (page - 1) * 10;
+
+  console.log(page, pageSize, ">>> DARI MODEL");
+  const db = await getDb();
+  const products = (await db
+    .collection("Products")
+    .aggregate([{ $skip: skipValue }, { $limit: pageSize }])
+    .toArray()) as ProductModel[];
+
+  return products;
+};
+
 // Detail product: /products/:slug (SSR)
 export const getProductsBySlug = async (slug: string) => {
   const db = await getDb();

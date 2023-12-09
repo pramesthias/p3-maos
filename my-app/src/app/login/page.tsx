@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { TheResponse } from "../register/page";
 import ErrMessage from "@/components/Err";
+import { SubmitButton } from "@/components/SubButton";
 
 export default function Login() {
   const handleLogin = async (formData: FormData) => {
@@ -14,7 +15,7 @@ export default function Login() {
     const password = formData.get("password");
     console.log(email, password);
 
-    const response = await fetch("http://localhost:3000/api/users/login", {
+    const response = await fetch(process.env.THE_URL + "/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,36 +52,16 @@ export default function Login() {
       }}
     >
       <div className="flex flex-col md:flex-row min-h-screen">
-        {/* <section className="flex-1 flex items-center justify-center">
-          <div className="absolute top-4 left-4">
-            <Image
-              src="/images/logo.png"
-              alt="Maos Logo"
-              width={100}
-              height={100}
-            />
-          </div> */}
-        {/* <h1 className="text-6x1 text-white font-bold transition-transform transform hover:scale-150 duration-1000 ease-in-out">
-          <Image
-            src="/images/logo.png"
-            alt="Maos Logo"
-            width={200}
-            height={200}
-            className="text-6x1 text-white font-bold transition-transform transform hover:scale-150 duration-1000 ease-in-out"
-          />
-        </h1> */}
-        {/* </section> */}
-
         <section className="flex-1 flex items-center justify-center md:item-start">
           <div className="p-6 md:p-12 rounded-lg shadow-xl w-full max-w-lg bg-white">
-            <div className="flex justify-center mb-6">
+            {/* <div className="flex justify-center mb-6">
               <img
                 src="/images/logo.png"
                 alt="Maos Logo"
                 width={270}
                 height={270}
               />
-            </div>
+            </div> */}
 
             <ErrMessage />
 
@@ -92,9 +73,6 @@ export default function Login() {
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
               <form className="space-y-6" action={handleLogin}>
                 <div>
-                  {/* <label className="block text-sm font-medium leading-6 text-gray-900">
-                    Email
-                  </label> */}
                   <div className="mt-2">
                     <input
                       name="email"
@@ -106,11 +84,7 @@ export default function Login() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between">
-                    {/* <label className="block text-sm font-medium leading-6 text-gray-900">
-                      Kata Sandi
-                    </label> */}
-                  </div>
+                  <div className="flex items-center justify-between"></div>
                   <div className="mt-2">
                     <input
                       name="password"
@@ -124,21 +98,22 @@ export default function Login() {
                 </div>
 
                 <div>
-                  <button
+                  {/* <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-gray-300 px-3 py-1.5 text-sm 
                     leading-6 text-blue-900 shadow-sm focus-visible:outline focus-visible:outline-offset-2 
                     focus-visible:outline-indigo-600"
                   >
                     MASUK
-                  </button>
+                  </button> */}
+                  <SubmitButton />
                 </div>
               </form>
               <div className="mt-4 flex items-center justify-center space-x-4">
                 <p>Belum mendaftar?</p>
                 <Link
                   href="/register"
-                  className="font-semibold text-blue-900 underline"
+                  className="font-semibold text-blue-900 underline hover:text-blue-500"
                 >
                   Daftar
                 </Link>

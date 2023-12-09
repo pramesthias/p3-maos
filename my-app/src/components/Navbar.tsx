@@ -1,6 +1,5 @@
 "use client"; // => onClick
 
-import Image from "next/image";
 import Search from "./Search";
 import Link from "next/link";
 import LogoutAction from "@/actions/logout"; // import logout.tsx here
@@ -26,13 +25,13 @@ export default function Navbar({ loginState }: { loginState: boolean }) {
               href="/products"
               className="font-semibold text-lg text-blue-900 mt-2"
             >
-              Produk
+              Semua Produk
             </Link>
           </li>
-          <li>
-            {/* SEARCH BAR */}
+          {/* <li>
+            SEARCH BAR
             <Search />
-          </li>
+          </li> */}
 
           {/* MASUK */}
           {!loginState && (
@@ -68,7 +67,6 @@ export default function Navbar({ loginState }: { loginState: boolean }) {
                   <li className="flex items-center">
                     {/* LOGOUT BUTTON */}
                     <button
-                      // href={"/wishlist"}
                       onClick={() => LogoutAction()}
                       className="font-semibold text-3lg text-red-500"
                     >

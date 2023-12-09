@@ -1,5 +1,3 @@
-// MAS FACHRI
-
 "use client";
 
 export default function Error({
@@ -16,7 +14,7 @@ export default function Error({
         Something went wrong!
       </h2>
       <button
-        className="font-serif text-red-800  font-bold"
+        className="font-bold font-serif text-red-800"
         onClick={() => reset()}
       >
         Try again

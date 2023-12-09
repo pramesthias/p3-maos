@@ -38,6 +38,8 @@ export async function middleware(request: NextRequest) {
     });
 
     console.log(decodedUser, ">>> decoded USER");
+    // console.log(decodedUser._id, ">>> ID");
+    // console.log(decodedUser.email, ">>> EMAIL");
     return response;
   }
 

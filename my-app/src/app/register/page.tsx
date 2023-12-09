@@ -4,6 +4,7 @@ import "../globals.css";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import ErrMessage from "@/components/Err";
+import { SubmitButton } from "@/components/SubButton";
 
 export type TheResponse<T = {}> = {
   message?: string;
@@ -18,7 +19,7 @@ export default function Register() {
     const password = formData.get("password");
     console.log(username, email, password);
 
-    const response = await fetch("http://localhost:3000/api/users/register", {
+    const response = await fetch(process.env.THE_URL + "/api/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,19 +53,10 @@ export default function Register() {
       <div className="flex flex-col md:flex-row min-h-screen">
         <section className="flex-1 flex items-center justify-center md:item-start">
           <div className="p-6 md:p-12 rounded-lg shadow-xl w-full max-w-lg bg-white">
-            {/* <div className="flex justify-center mb-6">
-              <img
-                src="/images/logo.png"
-                alt="Maos Logo"
-                width={270}
-                height={270}
-              />
-            </div> */}
-
             <ErrMessage />
 
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              <h2 className="mt-10 text-left text-4xl leading-9 tracking tight text-blue-700">
+              <h2 className="mt-10 text-left text-4xl leading-9 tracking tight text-blue-800">
                 Daftar
               </h2>
             </div>
@@ -110,19 +102,23 @@ export default function Register() {
                 </div>
 
                 <div>
-                  <button
+                  {/* <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-gray-300 px-3 py-1.5 text-sm 
-                    leading-6 text-blue-700 shadow-sm focus-visible:outline focus-visible:outline-offset-2 
+                    leading-6 text-blue-800 shadow-sm focus-visible:outline focus-visible:outline-offset-2 
                     focus-visible:outline-indigo-600"
                   >
                     Daftar
-                  </button>
+                  </button> */}
+                  <SubmitButton />
                 </div>
               </form>
               <div className="mt-4 flex items-center justify-center space-x-4">
                 <p>Sudah mendaftar?</p>
-                <Link href="/login" className="font-semibold text-blue-700">
+                <Link
+                  href="/login"
+                  className="underline hover:text-blue-500 font-semibold text-blue-800"
+                >
                   Masuk
                 </Link>
               </div>

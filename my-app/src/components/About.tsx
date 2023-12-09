@@ -15,7 +15,7 @@ export default function About() {
         </div>
         <div className="w-full lg:w-8/12">
           <img
-            className="w-80 lg:w-full h-auto"
+            className="w-80 lg:w-full h-auto shadow-lg border border-gray-300 rounded-md p-2"
             src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3M0LWRzYzk0ODYtY2hpbS1ybTUzMF8xLnBuZw.png"
             alt="A group of People"
           />

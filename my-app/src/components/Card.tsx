@@ -21,13 +21,6 @@ export default function Card({ product }: Props) {
       <div className="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
         <div className="mb-2 flex">
           <p className="mr-3 text-sm font-semibold text-blue-800">
-            {product.price.toLocaleString("id-ID", {
-              style: "currency",
-              currency: "IDR",
-              minimumFractionDigits: 0,
-            })}
-          </p>
-          <del className="text-xs text-gray-400">
             {(
               product.price -
               (product.price * Math.floor(Math.random() * 51)) / 100
@@ -36,11 +29,21 @@ export default function Card({ product }: Props) {
               currency: "IDR",
               minimumFractionDigits: 0,
             })}
+          </p>
+
+          <del className="text-xs text-gray-400">
+            {product.price.toLocaleString("id-ID", {
+              style: "currency",
+              currency: "IDR",
+              minimumFractionDigits: 0,
+            })}
           </del>
         </div>
         <Link href={`/products/${product.slug}`}>
           <h3 className="mb-2 text-sm text-black-500 hover:text-blue-500 hover:underline cursor-pointer">
-            {product.name}
+            {product.name.length > 30
+              ? product.name.substring(0, 30) + "..."
+              : product.name}
           </h3>
         </Link>
       </div>
