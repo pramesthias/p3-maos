@@ -66,14 +66,14 @@ export default function Products() {
             next={fetchData}
             hasMore={hasMore}
             loader={
-              <h2 className="mx-auto max-w-md text-center font-serif text-2xl font-bold sm:text-3xl">
+              <h2 className="mt-3 mx-auto max-w-md text-center text-blue-800 font-serif font-bold sm:text-2xl">
                 Loading...
               </h2>
             }
             endMessage={
               <p style={{ textAlign: "center" }}>
-                <b className="mx-auto max-w-md text-center font-serif text-2xl font-bold sm:text-3xl">
-                  Yay! You have seen it all
+                <b className="mt-8 mx-auto text-center text-blue-800 font-serif font-bold sm:text-xl">
+                  - Yay! You have seen it all -
                 </b>
               </p>
             }
@@ -94,9 +94,6 @@ export default function Products() {
                   <div className="flex-grow flex flex-col justify-end">
                     <Add id={product._id} />
                   </div>
-                  {/* MAS IAM */}
-                  {/* <Add products={data} /> */}
-                  {/* <Remove /> */}
                 </article>
               ))}
               {/*  */}

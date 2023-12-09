@@ -23,15 +23,7 @@ export async function GET(request: Request) {
   // let pageSize = searchParams.get("pageSize") as string;
   // let search = searchParams.get("search") as string;
 
-  console.log(page, ">>>PAGE");
-
-  // if (!page) {
-  //   return;
-  // }
-
   const pageNumber = +page;
-  // const size = +pageSize;
-
   const data = await getProductsPageScroll(pageNumber);
   return NextResponse.json(data);
 }

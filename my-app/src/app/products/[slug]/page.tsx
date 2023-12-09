@@ -1,4 +1,4 @@
-"use server";
+// "use server";
 
 // => http://localhost:3000/products/[slug]
 
@@ -35,9 +35,6 @@ export default async function ProductDetail({
   }
 
   console.log(data);
-
-  // console.log(product);
-  //   JSON.stringify(product) => mas iam
 
   return (
     <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
@@ -99,17 +96,6 @@ export default async function ProductDetail({
           </p>
 
           <div className="lg:mt-11 mt-10">
-            {/* <div className="flex flex-row justify-between">
-              <p className="font-medium text-base leading-4 text-gray-600 ">
-                Select quantity
-              </p>
-            </div> */}
-
-            {/* <div className="flex flex-row justify-between items-center mt-4">
-              <p className="font-medium text-base leading-4 text-gray-600 ">
-                Dimensions
-              </p>
-            </div> */}
             <hr className="bg-gray-200 w-full mt-4" />
           </div>
           <div className="w-full py-5 lg:mt-12 mt-6 ">

@@ -6,13 +6,6 @@ import { z } from "zod";
 
 //  CONTROLLER
 
-// const User = z.object({
-//   name: z.string().optional(),
-//   username: z.string(),
-//   email: z.string().email(),
-//   password: z.string().min(5),
-// });
-
 const User = z.object({
   email: z.string().email(),
   password: z.string().min(5),

@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { getMongoClientInstance } from "../config";
+import { UserModel } from "./user";
 
 export const getDb = async () => {
   const client = await getMongoClientInstance();
@@ -7,16 +8,27 @@ export const getDb = async () => {
   return db;
 };
 
-export type WishModel = {
+export interface WishModel {
   _id: ObjectId;
   userId: ObjectId;
   productId: ObjectId;
   createdAt: string;
   updatedAt: string;
-};
+  user: UserModel;
+}
 
-export type WishNew = Omit<WishModel, "_id">;
+// export interface UserWish {
+//   _id: ObjectId;
+//   userId: ObjectId;
+//   productId: ObjectId;
+//   createdAt: string;
+//   updatedAt: string;
+//   user: UserModel;
+// }
 
+export type WishNew = Omit<WishModel, "_id" | "user">;
+
+// ADD WISH OK
 export const addWishlist = async (userId: string, productId: string) => {
   console.log(userId, productId, ">>> DARI mODEL");
   const date = new Date().toDateString();
@@ -33,7 +45,7 @@ export const addWishlist = async (userId: string, productId: string) => {
   return newWish;
 };
 
-// DEL WISHLISTS
+// DEL WISHLISTS OK
 export const deleteWishlist = async (id: string) => {
   const db = await getDb();
   const delWish = await db
@@ -45,18 +57,22 @@ export const deleteWishlist = async (id: string) => {
 
 // List Wishlists (CSR) => find/find all(?)
 export const getWish = async (userId: string) => {
-  // USRiD
-
   const db = await getDb();
   const wishlists = (await db
     .collection("Wishlists")
-    .aggregate([{ $match: { userId: new ObjectId(userId) } }])
+    .aggregate([
+      { $match: { userId: new ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "Users",
+          localField: "userId",
+          foreignField: "_id",
+          as: "user",
+        },
+      },
+    ])
     .toArray()) as WishModel[];
 
-  // const wishlists = (await db
-  //   .collection("Wishlists")
-  //   .find()
-  //   .toArray()) as WishModel[];
-
+  console.log(wishlists);
   return wishlists;
 };

@@ -53,7 +53,7 @@ export const getProductsPageScroll = async (
   const db = await getDb();
   const products = (await db
     .collection("Products")
-    .aggregate([{ $skip: skipValue }, { $limit: 5 }])
+    .aggregate([{ $skip: skipValue }, { $limit: 10 }])
     .toArray()) as ProductModel[];
 
   return products;

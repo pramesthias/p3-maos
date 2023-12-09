@@ -11,13 +11,13 @@ export const getDb = async () => {
   return db;
 };
 
-export type UserModel = {
+export interface UserModel {
   _id: ObjectId;
   name?: string;
   username: string;
   email: string;
   password: string;
-};
+}
 
 export type UserNew = Omit<UserModel, "_id">;
 
