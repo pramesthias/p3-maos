@@ -44,19 +44,19 @@ export const deleteWishlist = async (id: string) => {
 };
 
 // List Wishlists (CSR) => find/find all(?)
-export const getWish = async () => {
+export const getWish = async (userId: string) => {
   // USRiD
 
   const db = await getDb();
-  // const wishlists = (await db
-  //   .collection("Wishlists")
-  //   .aggregate([{ $match: { userId: new ObjectId(id) } }])
-  //   .toArray()) as WishModel[];
-
   const wishlists = (await db
     .collection("Wishlists")
-    .find()
+    .aggregate([{ $match: { userId: new ObjectId(userId) } }])
     .toArray()) as WishModel[];
+
+  // const wishlists = (await db
+  //   .collection("Wishlists")
+  //   .find()
+  //   .toArray()) as WishModel[];
 
   return wishlists;
 };

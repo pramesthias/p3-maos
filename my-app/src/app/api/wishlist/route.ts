@@ -4,7 +4,8 @@ import { string, z } from "zod";
 
 // GET ALL BY USER ID
 export async function GET(request: NextRequest) {
-  const data = await getWish();
+  const userId = request.headers.get("x-user-id") as string;
+  const data = await getWish(userId);
   return NextResponse.json(data);
 }
 

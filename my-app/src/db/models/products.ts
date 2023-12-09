@@ -45,16 +45,15 @@ export const getProductsPage = async () => {
 };
 
 export const getProductsPageScroll = async (
-  page: number,
-  pageSize: number
+  page: number
 ): Promise<ProductModel[]> => {
   const skipValue = (page - 1) * 10;
 
-  console.log(page, pageSize, ">>> DARI MODEL");
+  console.log(page, ">>> DARI MODEL");
   const db = await getDb();
   const products = (await db
     .collection("Products")
-    .aggregate([{ $skip: skipValue }, { $limit: pageSize }])
+    .aggregate([{ $skip: skipValue }, { $limit: 5 }])
     .toArray()) as ProductModel[];
 
   return products;

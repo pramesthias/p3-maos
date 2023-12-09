@@ -1,5 +1,5 @@
 "use client"; // =>
-// http://localhost:3000/products
+// PAGINATION HERE
 
 import Add from "@/components/Add";
 import Card from "@/components/Card";
@@ -19,22 +19,32 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Products() {
   const [data, setData] = useState<Product[]>([]);
+  // 1
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(1);
+  // const [search, setSearch] = useState(""); //SEARCH
 
   const fetchData = async () => {
+    console.log(page, ">>> INI ");
+    //
     const baseUrl = process.env.THE_URL || "http://localhost:3000";
-    const url = `${baseUrl}/api/products`;
-    // const url = `${baseUrl}/api/products?page=${page}&pageSize=${pageSize}`; // 2 + ?page=${page}
+    const url = `${baseUrl}/api/products?page=${page}`;
     const response = await fetch(url, {
       method: "GET",
-      // cache: "no-store",
+      cache: "no-store",
     });
 
     const products = await response.json();
-    setData(products);
-  };
-  console.log(data, "dari PRODUCTS");
+    console.log(products, ">>> PRODUCTS");
 
-  // 4
+    if (products.length === 0) {
+      setHasMore(false);
+    } else {
+      setData([...data, ...products]);
+      setPage(page + 1);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -44,35 +54,54 @@ export default function Products() {
       <section className="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
-            {/* SEARCH COMPONENT */}
+            {/* SEARCH */}
             {/* <Search /> */}
-            <h2 className="font-serif text-2xl font-bold sm:text-3xl mt-8">
+            <h2 className="font-serif text-2xl font-bold sm:text-3xl">
               All Products
             </h2>
           </div>
 
-          {/* CARD SECTION */}
-          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-5 sm:gap-4 lg:mt-16">
-            {/* card box start */}
-            {data.map((product, index) => (
-              <article
-                key={index}
-                className="shadow-md relative flex flex-col overflow-hidden rounded-lg border"
-              >
-                {/* IMPORT */}
+          <InfiniteScroll
+            dataLength={data.length}
+            next={fetchData}
+            hasMore={hasMore}
+            loader={
+              <h2 className="mx-auto max-w-md text-center font-serif text-2xl font-bold sm:text-3xl">
+                Loading...
+              </h2>
+            }
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b className="mx-auto max-w-md text-center font-serif text-2xl font-bold sm:text-3xl">
+                  Yay! You have seen it all
+                </b>
+              </p>
+            }
+          >
+            {/* CARD SECTION */}
+            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-5 sm:gap-4 lg:mt-16">
+              {/* card box start */}
+              {data.map((product, index) => (
+                <article
+                  key={index}
+                  className="shadow-md relative flex flex-col overflow-hidden rounded-lg border"
+                >
+                  {/* IMPORT */}
 
-                <Card product={product} />
+                  <Card product={product} />
 
-                {/* ADD WISHLIST BUTTON */}
-                <div className="flex-grow flex flex-col justify-end">
-                  <Add id={product._id} />
-                </div>
-                {/* MAS IAM */}
-                {/* <Remove /> */}
-              </article>
-            ))}
-            {/*  */}
-          </div>
+                  {/* ADD WISHLIST BUTTON */}
+                  <div className="flex-grow flex flex-col justify-end">
+                    <Add id={product._id} />
+                  </div>
+                  {/* MAS IAM */}
+                  {/* <Add products={data} /> */}
+                  {/* <Remove /> */}
+                </article>
+              ))}
+              {/*  */}
+            </div>
+          </InfiniteScroll>
         </div>
       </section>
     </div>
