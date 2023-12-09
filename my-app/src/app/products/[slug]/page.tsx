@@ -1,6 +1,5 @@
 "use server";
 
-// mas fachri
 // => http://localhost:3000/products/[slug]
 
 import Add from "@/components/Add";
@@ -34,6 +33,8 @@ export default async function ProductDetail({
   if ("data" in product) {
     data = product.data as Product;
   }
+
+  console.log(data);
 
   // console.log(product);
   //   JSON.stringify(product) => mas iam
@@ -113,7 +114,7 @@ export default async function ProductDetail({
           </div>
           <div className="w-full py-5 lg:mt-12 mt-6 ">
             {/* ADD BUTTON */}
-            <Add id={data?._id} />
+            {/* <Add id={data?._id} /> */}
           </div>
         </div>
       </div>

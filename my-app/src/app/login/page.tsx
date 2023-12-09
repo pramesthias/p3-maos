@@ -54,15 +54,6 @@ export default function Login() {
       <div className="flex flex-col md:flex-row min-h-screen">
         <section className="flex-1 flex items-center justify-center md:item-start">
           <div className="p-6 md:p-12 rounded-lg shadow-xl w-full max-w-lg bg-white">
-            {/* <div className="flex justify-center mb-6">
-              <img
-                src="/images/logo.png"
-                alt="Maos Logo"
-                width={270}
-                height={270}
-              />
-            </div> */}
-
             <ErrMessage />
 
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">

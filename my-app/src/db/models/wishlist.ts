@@ -22,13 +22,12 @@ export const addWishlist = async (userId: string, productId: string) => {
   const date = new Date().toDateString();
 
   const wishlist: WishNew = {
-    userId: new ObjectId(userId), // dari yang login (?)
+    userId: new ObjectId(userId),
     productId: new ObjectId(productId),
     createdAt: date,
     updatedAt: date,
   };
 
-  // return wishlist;
   const db = await getDb();
   const newWish = await db.collection("Wishlists").insertOne(wishlist);
   return newWish;

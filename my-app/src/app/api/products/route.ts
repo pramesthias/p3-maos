@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   // let search = searchParams.get("search") as string;
   // console.log(search);
   const data = await getProducts();
-  console.log(data);
+  // console.log(data);
   return NextResponse.json(data);
 }
 

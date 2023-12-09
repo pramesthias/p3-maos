@@ -1,3 +1,4 @@
+"use server";
 // import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import Add from "@/components/Add";

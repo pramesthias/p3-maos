@@ -30,9 +30,9 @@ export default function Products() {
     });
 
     const products = await response.json();
-    console.log(products, "dari PRODUCTS");
     setData(products);
   };
+  console.log(data, "dari PRODUCTS");
 
   // 4
   useEffect(() => {
@@ -68,7 +68,6 @@ export default function Products() {
                   <Add id={product._id} />
                 </div>
                 {/* MAS IAM */}
-                {/* <Add products={data} /> */}
                 {/* <Remove /> */}
               </article>
             ))}
