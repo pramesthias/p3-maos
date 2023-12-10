@@ -1,7 +1,6 @@
-import { Product } from "@/types"; // mas fachri
+import { Product } from "@/types";
 import Link from "next/link";
 
-// mas fachri
 type Props = {
   product: Product;
 };

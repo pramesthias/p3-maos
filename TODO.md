@@ -59,13 +59,13 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
 - [x] Halaman register: /register
 - [x] Halaman login: /login
 - [x] Halaman home: / (SSR)
-- [ ] Halaman product: /products (CSR)
+- [x] Halaman product: /products (CSR)
   - [x] Komponen List Product (CSR)
-  - [ ] Komponen Search (CSR)
+  - [x] Komponen Search (CSR)
   - [x] Komponen Pagination (CSR)
   - [x] Komponen Add to Wishlist (CSR)
 - [x] Halaman detail product: /products/:slug (SSR)
-  - [ ] Komponen Add to Wishlist (CSR)
+  - [x] Komponen Add to Wishlist (CSR)
 - [x] Halaman wishlist: /wishlist
   - [x] Komponen List Wishlist (CSR)
   - [x] Komponen Remove Wishlist (CSR)
@@ -77,7 +77,7 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
 ### NEXT.js Route Handler
 
 - [x] Install MongoDB database pada komputer kamu atau menggunakan MongoDB Atlas
-- [ ] Lakukan wiring dan validasi terhadap halaman-halaman dan komponen-komponen yang sudah dibuat.
+- [x] Lakukan wiring dan validasi terhadap halaman-halaman dan komponen-komponen yang sudah dibuat.
   - [x] Halaman register: /register
     - [x] username:string (validation: required, unique)
     - [x] email:string (validation: required, unique, email format)
@@ -88,7 +88,7 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
   - [x] Halaman home: / (SSR)
     - [x] Halaman product: /products
     - [x] Fitur List Product
-    - [ ] Fitur Search
+    - [x] Fitur Search
     - [x] Fitur Pagination
     - [x] Untuk menerapakan infinite scroll salah satu package yang bisa digunakan: react-infinite-scroll
   - [x] Fitur Add to Wishlist
@@ -96,13 +96,13 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
     - [x] productId: ObjectId (validation: required)
   - [x] Halaman detail product: /products/:slug
     - [x] Fitur Add to Wishlist
-      - [ ] userId: ObjectId (validation: required)
-      - [ ] productId: ObjectId (validation: required)
-  - [ ] Halaman Wishlist
+      - [x] userId: ObjectId (validation: required)
+      - [x] productId: ObjectId (validation: required)
+  - [x] Halaman Wishlist
     - [x] Fitur List Wishlist
     - [x] Fitur Remove to Wishlist
-      - [ ] userId: ObjectId (validation: required)
-      - [ ] productId: ObjectId (validation: required)
+      - [x] userId: ObjectId (validation: required)
+      - [x] productId: ObjectId (validation: required)
 
 ### NEXT.js Auth
 
@@ -117,10 +117,10 @@ Implementasikan autentikasi pada aplikasi NEXT.js yang sudah dibuat dengan detai
 
 Lakukan deployment pada project ini agar aplikasi bisa dilihat oleh user lain
 
-- [ ] Deploy client
+- [x] Deploy client
 
 ## Day 5 - 6
 
 ### Buddy Session
 
-- [ ] Silahkan cek tugas/aplikasi yang kamu buat ke instruktur/buddy untuk memastikan aplikasi yang dibuat sudah sesuai requirement.
+- [x] Silahkan cek tugas/aplikasi yang kamu buat ke instruktur/buddy untuk memastikan aplikasi yang dibuat sudah sesuai requirement.

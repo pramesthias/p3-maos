@@ -10,24 +10,17 @@ import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-// async function getProducts(query: string | null): Promise<Product[]> {
-//   const data = await fetch("localhost:3001/products", {
-//     cache: "no-store",
-//   });
-//   return await data.json();
-// }
-
 export default function Products() {
   const [data, setData] = useState<Product[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
-  // const [search, setSearch] = useState(""); //SEARCH
+  const [search, setSearch] = useState(""); //SEARCH
 
   const fetchData = async () => {
     console.log(page, ">>> INI ");
     //
-    const baseUrl = process.env.THE_URL || "http://localhost:3000";
-    const url = `${baseUrl}/api/products?page=${page}`;
+    // const baseUrl = process.env.THE_URL || "http://localhost:3000";
+    const url = `${process.env.NEXT_PUBLIC_THE_URL}/api/products?page=${page}&search=${search}`;
     const response = await fetch(url, {
       method: "GET",
       cache: "no-store",
@@ -45,8 +38,11 @@ export default function Products() {
   };
 
   useEffect(() => {
+    setData([]);
+    setPage(1);
+    setHasMore(true);
     fetchData();
-  }, []);
+  }, [search]);
 
   return (
     <div>
@@ -54,7 +50,7 @@ export default function Products() {
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-md text-center">
             {/* SEARCH */}
-            {/* <Search /> */}
+            <Search search={search} setSearch={setSearch} />
             <h2 className="font-serif text-2xl font-bold sm:text-3xl">
               All Products
             </h2>
@@ -70,8 +66,8 @@ export default function Products() {
               </h2>
             }
             endMessage={
-              <p style={{ textAlign: "center" }}>
-                <b className="mt-8 mx-auto text-center text-blue-800 font-serif font-bold sm:text-xl">
+              <p style={{ textAlign: "center" }} className="mt-10">
+                <b className=" mx-auto text-center text-blue-800 font-serif font-bold sm:text-xl">
                   - Yay! You have seen it all -
                 </b>
               </p>

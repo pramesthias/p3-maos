@@ -21,6 +21,7 @@ export interface WishModel {
 }
 
 export type WishNew = Omit<WishModel, "_id" | "user" | "product">;
+export type WishOld = Omit<WishModel, "user" | "product">;
 
 // ADD WISH OK
 export const addWishlist = async (userId: string, productId: string) => {
@@ -35,6 +36,16 @@ export const addWishlist = async (userId: string, productId: string) => {
   };
 
   const db = await getDb();
+
+  const wish = (await db.collection("Wishlists").findOne({
+    userId: new ObjectId(userId),
+    productId: new ObjectId(productId),
+  })) as WishOld;
+
+  if (wish) {
+    return "You Already Added this Product";
+  }
+
   const newWish = await db.collection("Wishlists").insertOne(wishlist);
   return newWish;
 };

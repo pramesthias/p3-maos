@@ -37,7 +37,7 @@ export async function middleware(request: NextRequest) {
       request: { headers: requestHeaders },
     });
 
-    console.log(decodedUser, ">>> decoded USER");
+    console.log(decodedUser, ">>> decoded USER here");
     // console.log(decodedUser._id, ">>> ID");
     // console.log(decodedUser.email, ">>> EMAIL");
     return response;

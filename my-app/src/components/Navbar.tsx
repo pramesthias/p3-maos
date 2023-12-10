@@ -28,10 +28,6 @@ export default function Navbar({ loginState }: { loginState: boolean }) {
               Semua Produk
             </Link>
           </li>
-          {/* <li>
-            SEARCH BAR
-            <Search />
-          </li> */}
 
           {/* MASUK */}
           {!loginState && (

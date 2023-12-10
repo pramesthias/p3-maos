@@ -20,17 +20,18 @@ export async function POST(request: NextRequest) {
     const userId = request.headers.get("x-user-id") as string;
     const productId: { productId: string } = await request.json();
     const prodId = productId?.productId as string;
-    // console.log(userId);
-    // console.log(productId.productId);
+    console.log(userId, ">>> user id");
+    console.log(prodId, ">>> prod id");
 
-    // PIKIR NANTI
-    // const validation = Wish.safeParse({ userId, prodId });
-    // if (!validation.success) {
-    //   throw validation.error;
-    // }
+    const validation = Wish.safeParse({ userId, productId: prodId });
+    console.log(validation);
+    if (!validation.success) {
+      throw validation.error;
+    }
 
     const wishlists = await addWishlist(userId, prodId);
 
+    // return NextResponse.json(wishlists);
     return NextResponse.json(
       {
         message: "Added to the Wishlist",
@@ -72,13 +73,12 @@ export async function DELETE(request: NextRequest) {
     const productId: { productId: string } = await request.json();
     const prodId = productId?.productId as string;
 
-    // PIKIR NANTI
-    // const validation = Wish.safeParse({ userId, prodId });
-    // if (!validation.success) {
-    //   throw validation.error;
-    // }
+    const validation = Wish.safeParse({ userId, productId: prodId });
+    if (!validation.success) {
+      throw validation.error;
+    }
 
-    //   console.log(request);
+    //   console.log(request.headers);
     //   const id = params.id;
     //   const wishlists = await deleteWishlist(id);
 

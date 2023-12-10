@@ -6,8 +6,8 @@ export default function Remove({
   onDelete: () => void;
 }) {
   const handleDelete = async () => {
-    const baseUrl = process.env.THE_URL || "http://localhost:3000";
-    const url = `${baseUrl}/api/wishlist`;
+    // const baseUrl = process.env.THE_URL || "http://localhost:3000";
+    const url = `${process.env.NEXT_PUBLIC_THE_URL}/api/wishlist`;
     const data = await fetch(url, {
       cache: "no-store",
       method: "DELETE",

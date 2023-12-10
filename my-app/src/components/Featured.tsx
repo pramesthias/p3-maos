@@ -10,8 +10,8 @@ export default function Featured() {
   const [data, setData] = useState<Product[]>([]);
 
   const fetchData = async () => {
-    const baseUrl = process.env.THE_URL || "http://localhost:3000";
-    const url = `${baseUrl}/api/products?page=1`; // 2 + ?page=${page}
+    // const baseUrl = process.env.THE_URL || "http://localhost:3000";
+    const url = `${process.env.NEXT_PUBLIC_THE_URL}/api/products?page=1`;
     const response = await fetch(url, {
       method: "GET",
       cache: "no-store",

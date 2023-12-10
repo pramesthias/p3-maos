@@ -11,8 +11,8 @@ export default function Wishlist() {
   const [data, setData] = useState<Wishlist[]>([]);
 
   const fetchData = async () => {
-    const baseUrl = process.env.THE_URL || "http://localhost:3000";
-    const url = `${baseUrl}/api/wishlist`;
+    // const baseUrl = process.env.NEXT_PUBLIC_THE_URL || "http://localhost:3000";
+    const url = `${process.env.NEXT_PUBLIC_THE_URL}/api/wishlist`;
     const response = await fetch(url, {
       method: "GET",
       cache: "no-store",

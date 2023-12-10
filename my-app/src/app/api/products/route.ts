@@ -20,10 +20,11 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   let page = searchParams.get("page") as string;
+  let name = (searchParams.get("search") || "") as string;
   // let pageSize = searchParams.get("pageSize") as string;
   // let search = searchParams.get("search") as string;
 
   const pageNumber = +page;
-  const data = await getProductsPageScroll(pageNumber);
+  const data = await getProductsPageScroll(pageNumber, name);
   return NextResponse.json(data);
 }

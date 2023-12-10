@@ -1,25 +1,26 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 export default function Search({
-  onSearch,
+  search,
+  setSearch,
 }: {
-  onSearch: (searchTerm: string) => void;
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
 }) {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    onSearch(searchTerm);
-  }, [searchTerm, onSearch]);
+  const handleSearch = async (e: any) => {
+    setSearch(e.target.value);
+    console.log(search);
+  };
 
   return (
     <div className="form-control">
       <input
         type="text"
         placeholder="Cari Judul Buku"
-        className="input input-bordered"
-        value={searchTerm} //
-        onChange={(e) => setSearchTerm(e.target.value)} //
+        className="input input-bordered mb-8"
+        value={search} //
+        onChange={handleSearch} //
       />
     </div>
   );

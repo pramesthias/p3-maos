@@ -19,17 +19,20 @@ export default function Register() {
     const password = formData.get("password");
     console.log(username, email, password);
 
-    const response = await fetch(process.env.THE_URL + "/api/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_THE_URL + "/api/users/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+        }),
+      }
+    );
 
     const result = (await response.json()) as TheResponse;
 

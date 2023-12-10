@@ -1,14 +1,12 @@
-// "use server";
-
+"use server";
 // => http://localhost:3000/products/[slug]
 
 import Add from "@/components/Add";
 import { Product } from "@/types";
-import type { Metadata, ResolvingMetadata } from "next";
 import { cookies } from "next/headers";
 
 async function getProductBySlug(slug: string): Promise<Product> {
-  let url = process.env.THE_URL + "/api/products/" + slug;
+  let url = process.env.NEXT_PUBLIC_THE_URL + "/api/products/" + slug;
   const data = await fetch(url, {
     cache: "no-store",
     headers: {
@@ -21,7 +19,6 @@ async function getProductBySlug(slug: string): Promise<Product> {
 
 // export default async function ProductDetail({ params }: Props) {
 export default async function ProductDetail({
-  // => mas iam
   params,
 }: {
   params: {
@@ -100,7 +97,7 @@ export default async function ProductDetail({
           </div>
           <div className="w-full py-5 lg:mt-12 mt-6 ">
             {/* ADD BUTTON */}
-            {/* <Add id={data?._id} /> */}
+            <Add id={data?._id} data-ssr-flag />
           </div>
         </div>
       </div>

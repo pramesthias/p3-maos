@@ -15,16 +15,19 @@ export default function Login() {
     const password = formData.get("password");
     console.log(email, password);
 
-    const response = await fetch(process.env.THE_URL + "/api/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_THE_URL + "/api/users/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
 
     const result = (await response.json()) as TheResponse<{
       accessToken: string;

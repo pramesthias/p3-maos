@@ -44,8 +44,10 @@ export const getProductsPage = async () => {
   return products;
 };
 
+// USED
 export const getProductsPageScroll = async (
-  page: number
+  page: number,
+  name: string
 ): Promise<ProductModel[]> => {
   const skipValue = (page - 1) * 10;
 
@@ -53,7 +55,11 @@ export const getProductsPageScroll = async (
   const db = await getDb();
   const products = (await db
     .collection("Products")
-    .aggregate([{ $skip: skipValue }, { $limit: 10 }])
+    .aggregate([
+      { $match: { name: { $regex: name, $options: "i" } } },
+      { $skip: skipValue },
+      { $limit: 10 },
+    ])
     .toArray()) as ProductModel[];
 
   return products;
