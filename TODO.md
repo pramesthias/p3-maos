@@ -62,13 +62,13 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
 - [ ] Halaman product: /products (CSR)
   - [x] Komponen List Product (CSR)
   - [ ] Komponen Search (CSR)
-  - [ ] Komponen Pagination (CSR)
-  - [ ] Komponen Add to Wishlist (CSR)
+  - [x] Komponen Pagination (CSR)
+  - [x] Komponen Add to Wishlist (CSR)
 - [x] Halaman detail product: /products/:slug (SSR)
   - [ ] Komponen Add to Wishlist (CSR)
-- [ ] Halaman wishlist: /wishlist
-  - [ ] Komponen List Wishlist (CSR)
-  - [ ] Komponen Remove Wishlist (CSR)
+- [x] Halaman wishlist: /wishlist
+  - [x] Komponen List Wishlist (CSR)
+  - [x] Komponen Remove Wishlist (CSR)
 
 > Catatan: Disini belum perlu melakukan fetching atau request data
 
@@ -85,22 +85,22 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
   - [x] Halaman login: /login
     - [x] email:string (validation: required, email format)
     - [x] password:string (validation: required)
-  - [ ] Halaman home: / (SSR)
+  - [x] Halaman home: / (SSR)
     - [x] Halaman product: /products
-    - [ ] Fitur List Product
+    - [x] Fitur List Product
     - [ ] Fitur Search
-    - [ ] Fitur Pagination
-    - [ ] Untuk menerapakan infinite scroll salah satu package yang bisa digunakan: react-infinite-scroll
-  - [ ] Fitur Add to Wishlist
-    - [ ] userId: ObjectId (validation: required)
-    - [ ] productId: ObjectId (validation: required)
+    - [x] Fitur Pagination
+    - [x] Untuk menerapakan infinite scroll salah satu package yang bisa digunakan: react-infinite-scroll
+  - [x] Fitur Add to Wishlist
+    - [x] userId: ObjectId (validation: required)
+    - [x] productId: ObjectId (validation: required)
   - [x] Halaman detail product: /products/:slug
-    - [ ] Fitur Add to Wishlist
+    - [x] Fitur Add to Wishlist
       - [ ] userId: ObjectId (validation: required)
       - [ ] productId: ObjectId (validation: required)
   - [ ] Halaman Wishlist
-    - [ ] Fitur List Wishlist
-    - [ ] Fitur Remove to Wishlist
+    - [x] Fitur List Wishlist
+    - [x] Fitur Remove to Wishlist
       - [ ] userId: ObjectId (validation: required)
       - [ ] productId: ObjectId (validation: required)
 

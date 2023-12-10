@@ -19,7 +19,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Products() {
   const [data, setData] = useState<Product[]>([]);
-  // 1
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   // const [search, setSearch] = useState(""); //SEARCH

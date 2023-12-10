@@ -42,14 +42,10 @@ export const addWishlist = async (userId: string, productId: string) => {
 // DEL WISHLISTS OK
 export const deleteWishlist = async (id: string) => {
   const db = await getDb();
-  const delWish = await db
-    .collection("Wishlists")
-    .deleteOne({ productId: new ObjectId(id) });
-
-  return delWish;
+  await db.collection("Wishlists").deleteOne({ productId: new ObjectId(id) });
 };
 
-// List Wishlists (CSR) => find/find all(?)
+// List Wishlists (CSR) => OK
 export const getWish = async (userId: string) => {
   const db = await getDb();
   const wishlists = (await db

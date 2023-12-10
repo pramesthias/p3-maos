@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import About from "@/components/About";
 import Add from "@/components/Add";
 import Banner from "@/components/Banner";

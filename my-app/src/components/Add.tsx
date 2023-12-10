@@ -1,8 +1,4 @@
 "use-client";
-import { Product } from "@/types";
-import { ObjectId } from "mongodb";
-
-// =>
 
 export default function Add({ id }: { id: string }) {
   const handleAdd = async () => {
@@ -15,6 +11,12 @@ export default function Add({ id }: { id: string }) {
         productId: id,
       }),
     });
+
+    if (data.ok) {
+      alert("Added to wishlist successfully!");
+    } else {
+      alert("Failed to add to wishlist, Please login first!");
+    }
 
     return await data.json();
   };
